@@ -1,0 +1,53 @@
+div[class*="circle"] {
+    height: 100px;
+    width: 100px;
+    background-color:white;
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body {
+    background-image: url("../project1/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    color: rgb(173, 164, 75);
+    font-family: "Orbitron", arial, serif;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.column {
+    float: left;
+}
+
+#circles {
+    margin:0 auto;
+    width: 500px;
+}
+
+#footer {
+    font-size: 70px;
+    clear: both;
+    text-align: center;
+}
+
+.button{
+    font-family: "Orbitron", arial, serif;
+    color: #4CAF50;
+    border: 10px solid #4CAF50;
+    position: relative;
+    right: 0%;
+}
+
+#score {
+    font-family: "Orbitron", arial, serif;
+    color: #4CAF50;
+    font-size: 25px;
+
+
+}

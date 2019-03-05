@@ -1,49 +1,49 @@
+<<<<<<< HEAD
 //Constructor
 
-function Game() {
-    this.colors = ['#FF0000', '#CC6600', '#FFFF00', '00FF00', '#0000FF', 'FF007F'];
-    this.circles = [1, 2, 3, 4];
-    this.currentTime = 0;
-    this.randomPosition = Math.floor(Math.random() * this.circles.length)
-    this.randomNumber = Math.floor(Math.random() * this.colors.length)
+function Game(colorsArray, allCircles) {
+  this.colors = colorsArray;
+  this.circles = allCircles;
+  this.intervalIdCircles = 0;
+  this.intervalIdGame = 0;
 }
 
+// => random button
 Game.prototype.PickRandomButton = function() {
-    return this.circles[this.randomPosition]
-}
+  var randomPosition = Math.floor(Math.random() * this.circles.length);
+  return this.circles[randomPosition];
+};
 
-Game.prototype.PickRandomColor = function () { 
-    return this.colors[this.randomNumber]
-}
+// => random color
+Game.prototype.PickRandomColor = function() {
+  var randomNumber = Math.floor(Math.random() * this.colors.length);
+  return this.colors[randomNumber];
+};
 
- Game.prototype.AssignColorToButton = function () { 
-    document.getElementById(this.randomPosition).style.backgroundColor = this.PickRandomColor();
-    console.log("HELLO")
-}
+// => assign color to button
+Game.prototype.AssignColorToButton = function() {
+  var randomButton = game.PickRandomButton();
+  var randomColor = game.PickRandomColor();
+  randomButton.style.backgroundColor = randomColor;
+};
 
-Game.prototype.PointsCounter = function() {
-    if (this.circles = "#FF0000") {
+// => Flip color back to white before it changes again
+// Game.prototype.FlipColors =
 
-    }
+Game.prototype.Start = function() {
+  this.intervalIdCircles = setInterval(function() {
+    $(".circle").css("background-color", "#FFFFFF");
+    game.AssignColorToButton();
+  }, 1000);
+};
 
-}
+Game.prototype.Stop = function() {
+  clearInterval(this.intervalIdCircles);
+};
 
-Game.prototype.StartGame = function() {
-    return setInterval(function () {
-    this.currentTime += 1;
-    }, bind(this), 1000);
-
-}
-
-Game.prototype.TimeCounter = function() {
-    Math.floor(this.currentTime % 60);
-}
-
-Game.prototype.GameSpeed = function() {
-
-}
-
-Game.prototype.EndGame = function() {
-
-}
+Game.prototype.GameTime = function() {
+  this.intervalIdGame = setInterval(function() {
+    game.Start();
+  }, 30000);
+};
 

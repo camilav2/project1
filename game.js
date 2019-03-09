@@ -4,7 +4,7 @@ function Game(colorsArray, allCircles) {
   this.colors = colorsArray;
   this.circles = allCircles;
   this.intervalIdCircles = 0;
-  this.counter = 20;
+  this.counter = 30;
 }
 
 // => random button
@@ -33,8 +33,9 @@ Game.prototype.Start = function() {
       this.AssignColorToButton();
       $("#countdown").html(this.counter--);
       if (this.counter < 0) {
-        this.Stop();
         this.Result();
+        this.Stop();
+        $(".button").html("START");
       }
     }.bind(this),
     1000
@@ -43,7 +44,7 @@ Game.prototype.Start = function() {
 
 Game.prototype.Stop = function() {
   clearInterval(this.intervalIdCircles);
-  this.counter = 20;
+  this.counter = 30;
  };
 
 Game.prototype.Result = function() {
